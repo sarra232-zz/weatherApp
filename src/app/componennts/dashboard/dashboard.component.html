@@ -1,0 +1,39 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-6">
+            <img [src]="urlImage" alt="img_weather" width="300px" height="300px">
+        </div>
+        <div class="col-lg-6 mt-20">
+            <div class="column">
+                <input type="text" [(ngModel)]="city" class="form-control form-control-lg size"
+                    placeholder="Enter city">
+            </div>
+            <div class="column">
+                <button class="btn btn-primary btn-lg btn-block mt-2 size" (click)="getWeather()"
+                    [disabled]=" city === '' ">Get weather</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card card-text bg-primary mt-3" *ngIf="wheatherCity">
+        <div class="card-head m-3 size">
+            <h2>City: {{ wheatherCity.name }}</h2>
+        </div>
+        <div class="card-body">
+            <p><b>Temperature: {{wheatherCity.main.temp}} °F</b></p>
+            <p><b>Humidity: {{wheatherCity.main.humidity}}</b></p>
+            <p><b>Weather: {{wheatherCity.weather[0].description}}</b></p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="text-center mt-3" *ngIf = "error !== ''">
+        <button type="button" class="btn btn-danger btn-lg btn-block size">City not found :/.</button>
+    </div>
+    <div class="text-center mt-3" *ngIf = "loading">
+        <button class="btn btn-primary " type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading...
+        </button>
+    </div>
+</div>

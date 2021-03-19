@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "appClime"
+    }
+  },
+  "defaultProject": "appClime",
+  "cli": {
+    "analytics": "79c3c307-a7df-411f-b753-e7dfe07f3ded"
+  }
 }
